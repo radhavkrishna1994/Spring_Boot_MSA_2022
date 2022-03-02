@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="hello" class="com.training.classes.HelloWorld"
+		scope="prototype">
+
+					
+			<!-- <constructor-arg name="message" value="This is a new value from constructor"> 
+				</constructor-arg> -->
+			<property name="message"
+				value="This is a message with setter"></property>
+
+
+		</bean>
+
+
+		<bean id="operator" class="com.training.classes.AddOperator">
+		</bean>
+
+		<bean id="opDemo" class="com.training.classes.OperatorDemo"
+			init-method="start" autowire="byType"> <!-- byType -->
+			<!-- <property name="operator" ref="op"/> -->
+		</bean>
+
+</beans>
+
+
+
