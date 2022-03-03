@@ -1,0 +1,1 @@
+insert into books(isbn,title,price,stock) values(1234,'C',150.25,100)
