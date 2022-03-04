@@ -1,0 +1,48 @@
+show dbs;
+show collections;
+db -- to see the current db
+
+db.createUser(
+  {
+    user: 'admin',
+    pwd: 'password',
+    roles: [ { role: 'root', db: 'admin' } ]
+  }
+);
+
+db.createCollection('book')
+db.items.find() ; //to see all records
+db.book.insert({isbn:"3456",title:"abc"})
+
+db.items.drop()
+
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=springBootMongoDB
+
+spring.data.mongodb.uri=mongodb://user1:user1@localhost:27017/training
+
+public interface BookRepository extends MongoRepository<Book, Integer> {
+     
+ //--------------------------------custom query methods------------------------
+          
+          @Query("{id :?0}")                                                  
+//SQL Equivalent : SELECT * FROM BOOK WHERE ID=?
+
+// JPA   @Query(select Book b where id=:id)
+
+          Optional<Book> getBookById(Integer id);
+
+          @Query("{price : {$lt: ?0}}")                                 // SQL Equivalent : SELECT * FROM BOOK where pages<?
+          //@Query("{ pages : { $gte: ?0 } }")                        // SQL Equivalent : SELECT * FROM BOOK where pages>=?
+          //@Query("{ pages : ?0 }")                                      // SQL Equivalent : SELECT * FROM BOOK where pages=?
+          List<Book> getBooksByPages(Integer pages);
+
+          
+          @Query("{author : ?0}")                                         // SQL Equivalent : SELECT * FROM BOOK where author = ?
+          List<Book> getBooksByAuthor(String author);
+
+
+@Query("{author: ?0, price: ?1}")                            // SQL Equivalent : SELECT * FROM BOOK where author = ? and price=?
+         //@Query("{$and :[{author: ?0},{cost: ?1}] }")
+         List<Book> getBooksByAuthorAndCost(String author, Double cost);
