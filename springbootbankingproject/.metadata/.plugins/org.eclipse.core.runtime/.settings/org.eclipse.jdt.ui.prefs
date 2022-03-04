@@ -1,0 +1,9 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.abcbank.bean.Account"><rhs name\="com.abcbank.bean.Account"/></lhs><lhs name\="javax.jms.Queue"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="javax.jms.Destination"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="org.apache.activemq.command.ActiveMQDestination"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="org.apache.activemq.command.DataStructure"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="org.apache.activemq.jndi.JNDIBaseStorable"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="org.apache.activemq.jndi.JNDIStorableInterface"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="javax.naming.Referenceable"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="org.apache.activemq.command.ActiveMQQueue"><rhs name\="org.apache.activemq.command.ActiveMQQueue"/></lhs><lhs name\="com.training.model.OrderedBook"><rhs name\="com.training.model.OrderedBook"/></lhs></history>
+content_assist_number_of_computers=15
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=21
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

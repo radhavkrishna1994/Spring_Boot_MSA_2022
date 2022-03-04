@@ -1,0 +1,13 @@
+server.port=9004
+#spring.cloud.config.uri=http://localhost:9001
+
+#management.endpoints.web.exposure.include=*   # expose actuator endpoints   /refresh
+management.endpoints.web.exposure.include=*
+
+spring.config.import=configserver:http://localhost:9001
+
+serviceurl=someurl
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+
+message=hello

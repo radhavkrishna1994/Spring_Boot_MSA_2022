@@ -1,0 +1,72 @@
+package com.abcbank.controllers;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.abcbank.config.MyConfiguration;
+import com.abcbank.model.OrderedBook;
+import com.abcbank.proxy.BookProviderProxy;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
+
+
+@RequestMapping("/order")
+@RestController
+public class OrderController {
+
+	@Autowired
+	private MyConfiguration config;
+	
+	//call  http://localhost:8082/bookstore/book/isbn/1234
+	private String providerUrl = "http://localhost:8082/bookstore/getbookupdated/isbn/{isbn}";
+	
+		
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@GetMapping("/getorderedbook/isbn/{isbn}/qty/{qty}")
+	@CircuitBreaker(name = "cb" ,fallbackMethod = "defaultFallback")
+	public OrderedBook getOrderedBook(@PathVariable("isbn") String isbn,@PathVariable("qty") int quantity)
+	{
+		//providerUrl=config.getUrl();
+		System.out.println(providerUrl);
+		Map<String,String> map = new HashMap<>();
+		
+		map.put("isbn", isbn);
+		
+		OrderedBook orderedBook = restTemplate.getForObject(providerUrl, OrderedBook.class, map);
+		
+		orderedBook.setQty(quantity);
+		orderedBook.setAmount(quantity * orderedBook.getPrice());
+		return orderedBook; 
+	}
+	
+	public OrderedBook defaultFallback()
+	{
+		return new OrderedBook();
+	}
+	
+	// using feign client
+	/*
+	 * @Autowired private BookProviderProxy bookProviderProxy;
+	 * 
+	 * @GetMapping("/getorderedbookfeign/isbn/{isbn}/qty/{qty}") public OrderedBook
+	 * getOrderedBookFeign(@PathVariable("isbn") String isbn,@PathVariable("qty")
+	 * int quantity) { OrderedBook orderedBook =
+	 * bookProviderProxy.getOrderedBook(isbn);
+	 * 
+	 * orderedBook.setQty(quantity); orderedBook.setAmount(quantity *
+	 * orderedBook.getPrice());
+	 * 
+	 * return orderedBook; }
+	 */
+	
+}

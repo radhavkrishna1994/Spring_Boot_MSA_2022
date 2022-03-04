@@ -1,0 +1,17 @@
+version: "3"
+services:
+  myapp:
+    image: testsqlnew
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=sa
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+  myapp:
+    image: myapp
+    ports:
+      - "8080:8080"
+    depends_on:
+      - testsqlnew

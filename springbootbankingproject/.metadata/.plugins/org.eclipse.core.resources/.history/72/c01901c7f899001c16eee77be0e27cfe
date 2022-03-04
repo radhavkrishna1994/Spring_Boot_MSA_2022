@@ -1,0 +1,9 @@
+spring.datasource.initialization-mode=always
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.datasource.platform=mysql
+spring.datasource.url=jdbc:mysql://localhost:3306/test123?useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=password
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
+
