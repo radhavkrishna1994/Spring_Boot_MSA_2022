@@ -22,7 +22,7 @@ public class Book {
 	private String title;
 	private double price;
 	private long stock;
-	private String author;
+	//private String author;
 }
 
 

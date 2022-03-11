@@ -15,6 +15,8 @@ import com.training.model.Book;
 @Repository
 public interface BookRepo extends JpaRepository<Book, Long>{
 
+	public Book findByIsbn(long isbn);
+	
 	// get books based on title
 	public List<Book> findByTitle(String title); // python
 	
