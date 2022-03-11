@@ -48,17 +48,18 @@ public class BookController {
 	}
 	
 	@ResponseStatus(code = HttpStatus.CREATED)
-	@PostMapping("/addbook")
+	@PostMapping("/book")
 	public Book addBook(@RequestBody Book book)
 	{
 		return bookService.addBook(book);
 	}
 	
-	@GetMapping("/book/isbn/{isbn}")         // localhost:8083/bookstore/book/isbn/1234
-	public ResponseEntity<Book> getBookIsbn(@PathVariable("isbn") long isbn)
-	{
-		ResponseEntity<Book> responseEntity = new ResponseEntity<Book>(bookService.getBookIsbn(isbn),HttpStatus.OK);
-		return responseEntity;
-	}
+	/*
+	 * @GetMapping("/book/isbn/{isbn}") // localhost:8083/bookstore/book/isbn/1234
+	 * public ResponseEntity<Book> getBookIsbn(@PathVariable("isbn") long isbn) {
+	 * ResponseEntity<Book> responseEntity = new
+	 * ResponseEntity<Book>(bookService.getBookIsbn(isbn),HttpStatus.OK); return
+	 * responseEntity; }
+	 */
 	
 }

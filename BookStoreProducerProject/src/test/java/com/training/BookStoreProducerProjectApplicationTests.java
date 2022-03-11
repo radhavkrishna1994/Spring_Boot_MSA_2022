@@ -35,11 +35,11 @@ import com.training.services.BookService;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 class BookStoreProducerProjectApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 
