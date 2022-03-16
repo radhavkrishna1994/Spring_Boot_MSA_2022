@@ -1,0 +1,35 @@
+# This is a comment. You should use comments to describe
+# parts of your configuration.
+input {
+    
+  file {
+    path => "d:/logs/movie_log.log"
+    start_position => "beginning"
+  }
+
+}
+output {
+	stdout { codec => rubydebug }
+
+
+elasticsearch{
+	hosts => ["localhost:9200"]
+	index => "my_file_name"
+	
+
+}
+}
+
+Steps:
+
+1. run logstash -f logstash.conf
+
+2. http://localhost:9200/_cat/indices
+
+3. http://localhost:9200/my_file_name/_search
+
+4. in Kibana console go to index pattern create one 
+
+5. Discover - analytics
+
+
