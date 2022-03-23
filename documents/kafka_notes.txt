@@ -1,0 +1,32 @@
+https://kafka.apache.org/downloads
+
+https://data-flair.training/blogs/kafka-terminologies/
+
+in D:\softwares\kafka_2.12-2.8.0\kafka_2.12-2.8.0\bin\windows
+	in config folder....
+	change log dir in server-properties eg : d:\training\material\kafka\logs
+		data dir  in zookeeper-properties eg: d:\training\material\kafka\data
+
+in kafka dir
+	bin\windows\zookeeper-server-start.bat config\zookeeper.properties.
+
+	bin\windows\kafka-server-start.bat config\server.properties
+
+Creating a topic
+
+bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic
+
+List topics
+bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+#Producer
+bin\windows\kafka-console-producer --broker-list localhost:9092 --topic mytopic
+
+#Consumer
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic mytopic --from-beginning
+
+
+
+
+	
+
