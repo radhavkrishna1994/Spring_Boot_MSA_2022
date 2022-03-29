@@ -24,19 +24,18 @@ public class ExternalConfiguration {
 		return new ActiveMQQueue(myQueue);
 	}
 	
-	@Bean
-    public ActiveMQConnectionFactory activeMQConnectionFactory() {
-        ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
-        factory.setBrokerURL(brokerUrl);
-       // factory.setTrustedPackages(Arrays.asList("com.training","java.util.ArrayList"));
-       factory.setTrustAllPackages(true);
-        return factory;
-    }
-
-    @Bean
-    public JmsTemplate jmsTemplate() {
-        return new JmsTemplate(activeMQConnectionFactory());
-    }
+	
+	  @Bean 
+	  public ActiveMQConnectionFactory activeMQConnectionFactory() {
+	  ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
+	  factory.setBrokerURL(brokerUrl); //
+	 // factory.setTrustedPackages(Arrays.asList("com.training.model")); 
+	  factory.setTrustAllPackages(true); 
+	  return factory; }
+	  
+	  @Bean public JmsTemplate jmsTemplate() { return new
+	  JmsTemplate(activeMQConnectionFactory()); }
+	 
 
 
 }

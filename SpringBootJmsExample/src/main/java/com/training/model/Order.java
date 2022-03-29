@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Order implements Serializable{
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private long orderId;
 	private String customerName;
 	private double amount;

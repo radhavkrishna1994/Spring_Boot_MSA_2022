@@ -3,7 +3,7 @@ package com.training.consumers;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Consumer1 {
 	
 	

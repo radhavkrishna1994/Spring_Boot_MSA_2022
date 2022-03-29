@@ -12,11 +12,13 @@ import com.training.model.Order;
 public class JmsConsumer {
 
 	
+	
 	/*
 	 * @JmsListener(destination = "test-queue-internal") public void
 	 * receiveMessage(String message) {
 	 * System.out.println("Message Received:"+message); }
 	 */
+	 
 	
 	
 	/*
@@ -25,19 +27,21 @@ public class JmsConsumer {
 	 * System.out.println("Message Received:"+message); }
 	 */
 	 
+	 
+	 
+	
 	
 	
 	/*
 	 * @JmsListener(destination = "test-queue-external") public void
 	 * receiveOrder(Order order) { System.out.println(order + "Received..."); }
 	 */
-	 
-	 
+	 	 
 	
-	/*
-	 * @JmsListener(destination = "test-queue-external") public void
-	 * receiveOrder(List<Order> orders) { System.out.println(orders +
-	 * "Received..."); }
-	 */
+	
+	  @JmsListener(destination = "test-queue-external") public void
+	  receiveOrder(List<Order> orders) { System.out.println(orders +
+	  "Received..."); }
+	 
 	
 }

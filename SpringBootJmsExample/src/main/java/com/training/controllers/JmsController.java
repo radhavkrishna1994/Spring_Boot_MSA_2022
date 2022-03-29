@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.training.model.Order;
 import com.training.services.MessageProducerService;
 
-@RestController
+//@RestController
 public class JmsController {
 	
 	@Autowired
