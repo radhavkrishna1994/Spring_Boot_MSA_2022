@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name="booknew")
+//@Table(name="booknew")
 public class Book {
 	
 	@Id  // Primary key
@@ -20,6 +20,5 @@ public class Book {
 	private String title;
 	private Double price;
 	private Long stock;
-	private int port;
 
 }

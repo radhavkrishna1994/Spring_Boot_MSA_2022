@@ -23,32 +23,28 @@ public class BookProducerServiceApplication {//implements CommandLineRunner{
 	@Autowired
 	private BookRepo bookRepo;
 	
-	
-	
-	  @PostConstruct public void init() { 
-		  bookRepo.save(new Book(1234l, "C",150.25, 100l,0)); bookRepo.save(new Book(5678l, "CPlus", 170.25, 100l,0));
-	  bookRepo.save(new Book(7891l, "Python", 120.25, 100l,0));
-	  
-	  }
-	 
+	@PostConstruct
+	public void init()
+	{
+		bookRepo.save(new Book(1234l, "C", 150.25, 100l));
+		bookRepo.save(new Book(5678l, "CPlus", 170.25, 100l));
+		bookRepo.save(new Book(7891l, "Python", 120.25, 100l));
+		
+	}
 	
 	//CommandLine Runner  java 8
 	
-	/*
-	 * @Bean public CommandLineRunner getRunner(ApplicationContext ctx) { return
-	 * args->{
-	 * 
-	 * System.out.println(bookRepo.findByTitle("C"));
-	 * System.out.println(bookRepo.findByTitleAndStock("C",100l));
-	 * 
-	 * System.out.println(bookRepo.getBookOnTitle("CSharp"));
-	 * 
-	 * System.out.println(bookRepo.getBookOnTitleLike("%CS%"));
-	 * 
-	 * System.out.println(bookRepo.findByPriceLessThan(150.0));
-	 * 
-	 * System.out.println(bookRepo.updateStockOnTitle("Python", 75l)); }; }
-	 */
+	@Bean
+	public CommandLineRunner getRunner(ApplicationContext ctx)
+	{
+		return args->{
+			
+			System.out.println(bookRepo.findByTitle("C"));
+			System.out.println(bookRepo.findByTitleAndStock("C",100l));
+			
+			System.out.println(bookRepo.getBookOnTitle("CSharp"));
+		};
+	}
 	
 }
 

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.training.model.Book;
@@ -13,9 +12,6 @@ import com.training.repo.BookRepo;
 @Service
 public class BookService {
 
-	@Value("${server.port}")
-	private int port;
-	
 	@Autowired
 	private BookRepo bookRepo;
 		
@@ -29,12 +25,7 @@ public class BookService {
 	{
 		Optional<Book> opBook = bookRepo.findById(isbn);
 		if(opBook.isPresent())
-		{
-			Book bookFound = opBook.get();
-			bookFound.setPort(port);
-			return bookFound;
-		}
-			
+		return opBook.get();
 		
 		return null;
 	}
