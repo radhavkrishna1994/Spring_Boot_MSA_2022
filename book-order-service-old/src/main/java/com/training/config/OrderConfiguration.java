@@ -7,18 +7,19 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class OrderConfiguration {
-
-	@Value("${serviceUrl}")
+	
+	@Value("${serviceurl}")
 	private String serviceUrl;
 	
-	public String getServiceUrl() {
-		return serviceUrl;
-	}
-
 	@Bean
 	public RestTemplate getRestTemplate()
 	{
 		return new RestTemplate();
 	}
-	
+
+	public String getServiceUrl() {
+		
+		return serviceUrl;
+	}
+
 }

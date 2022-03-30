@@ -1,5 +1,6 @@
 package com.training.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,12 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class OrderedBook {
-
-	private Long isbn;
+public class OrderedBook {  
+	
+	private long isbn;
 	private String title;
-	private Double price;
-	private Long stock;
-	private int quantity;
-	private Double amount;
+	private double price;
+	private long stock;
+	private int qty;
+	private double amount;
 }
