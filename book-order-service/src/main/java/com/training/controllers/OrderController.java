@@ -21,7 +21,14 @@ public class OrderController {
 	public OrderedBook orderBook(@PathVariable("isbn") Long isbn,@PathVariable("quantity") int quantity)
 	{
 		return orderService.createOrderBook(isbn, quantity);
-		
-		
+			
 	}
+	
+	@GetMapping("/orderfeign/isbn/{isbn}/qty/{quantity}")
+	public OrderedBook orderBookFeign(@PathVariable("isbn") Long isbn,@PathVariable("quantity") int quantity)
+	{
+		return orderService.createOrderBookFeign(isbn, quantity);
+			
+	}
+	
 }

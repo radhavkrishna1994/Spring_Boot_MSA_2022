@@ -15,4 +15,5 @@ public class OrderedBook {
 	private Long stock;
 	private int quantity;
 	private Double amount;
+	private int port;
 }

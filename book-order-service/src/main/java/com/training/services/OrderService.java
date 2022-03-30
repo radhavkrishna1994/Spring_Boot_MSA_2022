@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.training.config.OrderConfiguration;
+import com.training.interfaces.BookFeignProxy;
 import com.training.model.OrderedBook;
 
 @Service
@@ -32,4 +33,18 @@ public class OrderService {
 		
 		return orderedBook;
 	}
+	
+	@Autowired
+	private BookFeignProxy proxy;
+	
+	public OrderedBook createOrderBookFeign(Long isbn,int quantity)
+	{
+		OrderedBook orderedBook = proxy.getOrderBook(isbn);
+		orderedBook.setQuantity(quantity);
+		orderedBook.setAmount(orderedBook.getPrice() * quantity);
+		
+		return orderedBook;
+	}
+	
+	
 }
