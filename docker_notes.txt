@@ -1,0 +1,96 @@
+
+
+create a jar of your project
+
+create a docker file - dockerfile
+Dockerfile
+
+FROM openjdk:latest
+ADD target/BookProducerService-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
+EXPOSE 8082
+
+docker -v
+docker login
+docker ps -a
+docker build -t radhavkrishna/rvk .
+
+docker images
+docker run -p 8082:8082 <docker image name>
+
+
+
+docker run --name mysql_training4 -e MYSQL_DATABASE=training -e MYSQL_ROOT_PASSWORD="root" -e MYSQL_USER="root" -e MYSQL_PASSWORD="root" -d mysql
+
+docker container logs mysql_training
+
+docker run -p 8888:8088 --link mysql_training1:mysql radhavkrishna/myspringprojectjpa
+
+https://phoenixnap.com/kb/mysql-docker-container
+
+docker run --name=mk-mysql -p3306:3306 -v mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:8.0.20
+
+docker run --name mysql_training6 -p3306:3306 -e MYSQL_DATABASE=training -e MYSQL_ROOT_PASSWORD
+
+docker container run --name mysqldb --network training_network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=training -d mysql
+
+docker container exec -it mysqldb bash
+
+docker container run --network employee-mysql --name employee-jdbc-container -p 8080:8080 -d employee-jdbc
+
+docker container run --network training_network --name employee-jdbc-container -p 8080:8080 -d employee-jdbc
+
+
+// mysql
+
+
+
+docker pull mysql
+docker run -p 3306:3306 --name testsql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -e MYSQL_USER=sa -e MYSQL_PASSWORD=password -d mysql:5.6
+
+docker container ls
+
+docker exec -it mysql-standalone bash
+
+docker network ls
+docker network create <network name>
+docker network connect bank_network testsql
+
+docker run --detach --env MYSQL_ROOT_PASSWORD=password --env MYSQL_USER=sa --env MYSQL_PASSWORD=password --env MYSQL_DATABASE=test --name testsql --publish 3307:3306 --network=bank_network mysql:8.0
+
+//push the image
+docker tag rvk_coforge <hub-user>/rvk_coforge 
+docker push hubuser/rvk_coforge  
+
+
+//docker commands
+
+docker --version
+docker pull ubuntu
+docker run -it -d <image name>
+
+docker ps
+docker ps -a
+docker exec -it <container id> bash
+docker stop <container id>
+docker kill <container id>
+docker commit <container id> <username/imagename>
+docker login
+docker push <username/image name>
+docker images
+docker rm <container id>
+docker rmi <image-id>
+docker build <path to docker file>
+
+docker build -t radhavkrishna/rvk .
+
+
+//mysql container 
+docker run -p 3306:3306 --name mysql_std_jpmc -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=bookstore -e MYSQL_USER=sa -e MYSQL_PASSWORD=password -d mysql:5.6
+
+docker run -p8083:8083 --link mysql_std1:mysql bookstore/rvk
+
+
+
+
+
